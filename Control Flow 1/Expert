@@ -1,0 +1,93 @@
+public class Main {
+    public static void main(String[] args) {
+
+        String correctUsername = "student";
+        String correctPIN = "1234";
+
+        String username = "student";
+        String pin = "1234";
+
+        double balance = 15000;
+        double withdrawalAmount = 3000;
+        double dailyWithdrawn = 1000;
+
+        String tier = "";
+        double dailyLimit = 0;
+        double feeRate = 0;
+        double transactionFee = 0;
+
+        String reason = "";
+
+        if (username.equals(correctUsername)) {
+            if (pin.equals(correctPIN)) {
+
+                if (balance >= 50000) {
+                    tier = "Platinum";
+                    dailyLimit = 30000;
+                } else if (balance >= 20000) {
+                    tier = "Gold";
+                    dailyLimit = 20000;
+                } else if (balance >= 5000) {
+                    tier = "Silver";
+                    dailyLimit = 10000;
+                } else {
+                    tier = "Bronze";
+                    dailyLimit = 5000;
+                }
+
+                System.out.println("Account Tier: " + tier);
+
+                switch (tier) {
+                    case "Bronze":
+                        feeRate = 0.02;
+                        break;
+                    case "Silver":
+                        feeRate = 0.015;
+                        break;
+                    case "Gold":
+                        feeRate = 0.01;
+                        break;
+                    case "Platinum":
+                        feeRate = 0.005;
+                        break;
+                }
+
+                if (withdrawalAmount > 0) {
+                    if (withdrawalAmount <= balance) {
+                        if (dailyWithdrawn + withdrawalAmount <= dailyLimit) {
+
+                            transactionFee = withdrawalAmount * feeRate;
+
+                            System.out.println("Transaction: APPROVED");
+                            System.out.println("Withdrawal Amount: " + withdrawalAmount);
+                            System.out.println("Transaction Fee: " + transactionFee);
+                            System.out.println("Total Deduction: "
+                                    + (withdrawalAmount + transactionFee));
+                            System.out.println("Remaining Balance: "
+                                    + (balance - withdrawalAmount - transactionFee));
+
+                        } else {
+                            reason = "Daily withdrawal limit exceeded";
+                        }
+                    } else {
+                        reason = "Insufficient balance";
+                    }
+                } else {
+                    reason = "Withdrawal amount must be greater than zero";
+                }
+
+                if (!reason.equals("")) {
+                    System.out.println("Transaction: DENIED");
+                    System.out.println("Reason: " + reason);
+                }
+
+            } else {
+                System.out.println("Transaction: DENIED");
+                System.out.println("Reason: Incorrect PIN");
+            }
+        } else {
+            System.out.println("Transaction: DENIED");
+            System.out.println("Reason: Incorrect username");
+        }
+    }
+}
