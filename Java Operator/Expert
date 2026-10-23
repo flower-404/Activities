@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int number1 = 5;
+        int number2 = 3;
+        int number3 = 2;
+
+        // PREDICTED: true kasi multiplication muna bago addition
+        boolean answer1 = number1 + number2 > number3 * 3;
+        System.out.println("Expression 1: " + answer1);
+
+        int count = 5;
+
+        // PREDICTED: 52 kasi old value muna ang gamit sa count++
+        System.out.println("Expression 2: " + count++ + 2);
+        System.out.println("Count after: " + count);
+
+        int grade = 85;
+        int absences = 2;
+
+        // PREDICTED: true kasi pasado ang grade at hindi sobra ang absences
+        boolean answer3 = grade >= 75 && absences <= 3 || grade >= 90;
+        System.out.println("Expression 3: " + answer3);
+
+        int points = 4;
+
+        // PREDICTED: 10 kasi mag-i-increment muna ang ++points bago idagdag
+        int answer4 = 5 + ++points;
+        System.out.println("Expression 4: " + answer4);
+    }
+}
