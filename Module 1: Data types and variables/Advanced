@@ -1,0 +1,23 @@
+public class Main {
+
+public static void main(String[] args) {
+        double centimeters = 275.5;
+
+        int meters = (int) (centimeters / 100);
+        double remainingCentimeters = centimeters - (meters * 100);
+
+        System.out.println("Centimeters: " + centimeters);
+        System.out.println("Whole meters: " + meters);
+        System.out.println("Remaining centimeters: " + remainingCentimeters);
+
+        int number = 10;
+        double widenedNumber = number; // No cast needed because double can store int values
+
+        System.out.println("Implicit widening (int to double): " + widenedNumber);
+
+        double decimalNumber = 15.75;
+        int narrowedNumber = (int) decimalNumber; // The decimal part .75 is lost
+
+        System.out.println("Explicit narrowing (double to int): " + narrowedNumber);
+    }
+}
