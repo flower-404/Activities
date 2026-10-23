@@ -1,0 +1,33 @@
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("=== COMPOUND GROWTH TRACKER ===");
+
+        double balance = 1000;
+
+        System.out.println("Starting Balance: " + balance);
+
+        balance += 200;
+        System.out.println("After adding 200: " + balance);
+
+        balance *= 1.10;
+        System.out.println("After 10% growth: " + balance);
+
+        balance += 300;
+        System.out.println("After adding 300: " + balance);
+
+        System.out.println("\n=== INCREMENT TRACKER ===");
+
+        int count = 5;
+
+        System.out.println("Starting count: " + count);
+
+        // Postfix count++ muna yung current value ang ipi-print bago mag-increment
+        System.out.println("Postfix result: " + count++);
+        System.out.println("Count after postfix: " + count);
+
+        // Prefix ++count mag-i-increment muna bago i-print ang updated value
+        System.out.println("Prefix result: " + ++count);
+        System.out.println("Count after prefix: " + count);
+    }
+}
