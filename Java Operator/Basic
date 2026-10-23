@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int firstNumber = input.nextInt();
+
+        System.out.print("Enter second number: ");
+        int secondNumber = input.nextInt();
+
+        System.out.println("\n=== CALCULATOR RESULTS ===");
+
+        System.out.println("Addition: " + (firstNumber + secondNumber));
+        System.out.println("Subtraction: " + (firstNumber - secondNumber));
+        System.out.println("Multiplication: " + (firstNumber * secondNumber));
+
+        if (secondNumber != 0) {
+            // Sa negative numbers, ang division ng int ay nagtatanggal ng decimal part
+            System.out.println("Division: " + (firstNumber / secondNumber));
+
+            // Ang remainder sign ay puwedeng negative depende sa firstNumber
+            System.out.println("Modulo: " + (firstNumber % secondNumber));
+        } else {
+            System.out.println("Division: Cannot divide by zero");
+            System.out.println("Modulo: Cannot divide by zero");
+        }
+
+        input.close();
+    }
+}
