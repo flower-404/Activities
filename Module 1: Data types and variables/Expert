@@ -1,0 +1,53 @@
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("=== OVERFLOW INVESTIGATOR ===");
+
+        byte number = 127;
+        number++;
+
+        System.out.println("Byte after increment: " + number);
+
+        System.out.println("\n=== STRING REFERENCE INVESTIGATOR ===");
+
+        String firstName = new String("Karl");
+        String secondName = new String("Karl");
+        String nickname = "Karl";
+
+        // False ang == kasi magkaibang object sila sa memory
+        System.out.println("firstName == secondName: " + (firstName == secondName));
+
+        // True ang equals() kasi same yung text nila
+        System.out.println("firstName.equals(secondName): " + firstName.equals(secondName));
+
+        // False ang == kasi ibang object si firstName at si nickname
+        System.out.println("firstName == nickname: " + (firstName == nickname));
+
+        // True ang equals() kasi parehong Karl yung laman nila
+        System.out.println("firstName.equals(nickname): " + firstName.equals(nickname));
+
+        // False ang == kasi magkaibang object sila
+        System.out.println("secondName == nickname: " + (secondName == nickname));
+
+        // True ang equals() kasi same yung text nila
+        System.out.println("secondName.equals(nickname): " + secondName.equals(nickname));
+
+        System.out.println("\n=== ARRAY REFERENCE SHARING ===");
+
+        int[] originalScores = {85, 90, 95};
+        int[] copiedScores = originalScores;
+
+        System.out.println("Before modification:");
+        System.out.println("Original score: " + originalScores[0]);
+        System.out.println("Copied score: " + copiedScores[0]);
+
+        copiedScores[0] = 100;
+
+        System.out.println("\nAfter modification:");
+        System.out.println("Original score: " + originalScores[0]);
+        System.out.println("Copied score: " + copiedScores[0]);
+
+        // Same array lang yung ginagamit nila kaya kapag binago si copiedScores magbabago rin yung value sa originalScores
+    }
+}
