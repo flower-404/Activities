@@ -1,0 +1,30 @@
+public class Main {
+    public static void main(String[] args) {
+
+        double purchaseAmount = 2500.00;
+        double discount;
+        String discountTier;
+
+        if (purchaseAmount >= 5000) {
+            discount = 0.15;
+            discountTier = "15% Discount";
+        } else if (purchaseAmount >= 3000) {
+            discount = 0.10;
+            discountTier = "10% Discount";
+        } else if (purchaseAmount >= 1000) {
+            discount = 0.05;
+            discountTier = "5% Discount";
+        } else {
+            discount = 0.00;
+            discountTier = "No Discount";
+        }
+
+        double discountAmount = purchaseAmount * discount;
+        double finalPrice = purchaseAmount - discountAmount;
+
+        System.out.println("Purchase Amount: " + purchaseAmount);
+        System.out.println("Discount Tier: " + discountTier);
+        System.out.println("Discount Amount: " + discountAmount);
+        System.out.println("Final Price: " + finalPrice);
+    }
+}
